@@ -11,9 +11,9 @@ print("Generator model loaded.")
 
 def generate_image(seed):
     tf.random.set_seed(seed)
-    noise = tf.random.normal([1, 100])  # Adjust if latent_dim is different
+    noise = tf.random.normal([1, 100])
     generated_image = model(noise, training=False)
-    generated_image = (generated_image[0] + 1) / 2.0  # Scale to [0, 1]
+    generated_image = (generated_image[0] + 1) / 2.0
     return generated_image.numpy()
 
 def generate_grid(seed_start=0, grid_size=5):
